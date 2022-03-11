@@ -1,0 +1,40 @@
+{% extends 'nav.html' %}
+
+{% block body %}
+
+
+  <div class="container my-3">
+  
+    <h2>Coding Articles by Indian Nerds</h2>
+    {% for item in myposts %}
+    
+     <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 my-4 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+        <strong class="d-inline-block mb-2 text-primary">Article by {{item.author}}</strong>
+        <h3 class="mb-0"><a  class="text-dark spf-link" href="/blogs?v={{item.uuid}}" >{{item.title}} </a> </h3>
+        <div class="mb-1 text-muted">{{item.datetime}}</div>
+
+        
+  
+  
+        <div><p>{{item.about}}</p>
+        </div>
+        <br>
+  
+        <div class="my-2">
+          <a class='spf-link btn btn-primary' href="/blogs?v={{item.uuid}}" role="button" class="btn btn-primary">Continue reading</a>
+        </div>
+  
+      </div>
+     
+      <div id = "name"  class="col-auto d-none d-lg-block">
+        <img src="/media/{{item.thumbnail}}" class="bd-placeholder-img" width="200" height="250" aria-label="Placeholder: Thumbnail"></img>
+  
+      </div>
+    </div>
+  
+    {% endfor %}
+  </div>
+
+
+{% endblock %}

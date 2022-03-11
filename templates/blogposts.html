@@ -1,0 +1,63 @@
+{% extends 'nav.html' %}
+
+{% block body %}
+<div  class="container" style="margin-top: 10px;">
+    <div class="row g-5">
+        <div class="col-md-8">
+          <h3 class="pb-4 mb-4 fst-italic border-bottom">
+            From the Firehose
+          </h3>
+    
+          <article class="blog-post">
+            <h1 class="blog-post-title">{{post.title}}</h1>
+            <p class="blog-post-meta">{{post.date}} by  {{post.author}} </p>
+            <p>{{post.content | safe}}</p>
+
+             
+          </article>
+          
+ 
+        </div>
+    
+        <div class="col-md-4">
+          <div class="position-sticky" style="top: 2rem;">
+            <div class="p-4 mb-3 bg-light rounded">
+              <h4 class="fst-italic">About</h4>
+              <p class="mb-0">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique quisquam vero nemo ipsam corporis atque! Et earum necessitatibus nostrum perferendis! Repellat quam omnis iusto nulla. Perferendis deleniti illum nobis debitis corrupti? Optio repellat quasi sed nisi, obcaecati hic deleniti eaque ullam omnis reiciendis quibusdam et quia nostrum sint esse dolore id? Dolore rem earum debitis, accusamus harum repellat perspiciatis repudiandae, qui dolorem voluptas quam nesciunt vitae aliquam corrupti consequuntur officia eius tempora eum quo illum! Facere eum non cum ipsum, id magnam rerum saepe nulla velit esse dolor, sed molestiae consequuntur odit! Nemo, modi velit illum quasi quia unde dolore ullam provident deleniti minima, magni iure nihil? Quisquam quo ducimus modi tenetur aliquid corrupti ab esse est incidunt dolore, facilis voluptate quis odio dolores odit. In nesciunt ullam eaque laborum quis culpa eum consequatur ab repellat! Nihil numquam, perspiciatis error, quisquam repellendus consequuntur aliquam sequi modi provident, voluptatum fugit doloremque? Voluptates atque ut asperiores fugiat saepe eum consequuntur quae veniam magni. Hic, perferendis nisi fugit nulla amet explicabo quia accusantium autem? Eius aperiam voluptates non nobis officiis ipsa illo voluptatem pariatur qui quasi iste voluptas blanditiis quaerat necessitatibus aliquam natus iusto harum culpa praesentium, cum expedita earum quam dignissimos obcaecati. Saepe omnis tempore, obcaecati aspernatur similique, dolores iste, enim commodi nam corrupti natus sunt expedita asperiores incidunt neque dolorum amet iusto ullam adipisci reiciendis tempora? Veniam voluptatibus incidunt dolore pariatur labore atque earum delectus quo dolorem ad sed dolores ipsam, eligendi voluptates, illum tempore minus, exercitationem repellendus autem veritatis vitae alias cum ratione? Dolorem, commodi. Accusamus, dolores fugiat modi provident asperiores rerum libero minima vero aperiam explicabo quia soluta doloremque totam inventore, eaque nostrum ea minus a ad sit. Placeat nulla, blanditiis earum deserunt rem aliquid iure repudiandae sapiente fuga doloribus. Iste saepe soluta omnis error iusto ea accusantium ipsum dolor optio! Magnam cumque fuga officia quaerat natus? Numquam natus deleniti cumque quaerat sint unde ut maxime mollitia, corrupti ipsa odit nobis labore voluptatum sit, voluptatibus neque repellat aut nostrum et officiis, dignissimos quod ad eligendi atque. Necessitatibus illo accusamus eveniet incidunt, nulla optio modi repudiandae illum? Sint expedita aut maiores dolore! Molestiae pariatur labore sed voluptatum quidem eveniet dignissimos laboriosam, eius ex corrupti voluptatibus quasi ipsum, repellendus accusantium inventore nisi porro nobis perferendis praesentium. Magni in at iusto ea aliquam dolorem tenetur praesentium dicta esse. Corrupti voluptas id earum animi minima cumque, inventore quis illo maiores similique quia commodi delectus veritatis harum deserunt quasi eligendi dolorum aperiam odio reprehenderit quo sequi sed vero consectetur! Veritatis maiores sunt labore aliquam voluptatem distinctio dicta minima nihil sed, ducimus hic! Maiores enim voluptatibus rem, officiis eos nobis laboriosam nesciunt similique odit accusantium dignissimos pariatur iure recusandae odio nemo consectetur dolore totam culpa eveniet molestiae sed officia esse.
+              </p>
+            </div>
+    
+            <div class="p-4">
+              <h4 class="fst-italic">Archives</h4>
+              <ol class="list-unstyled mb-0">
+                <li><a href="#">March 2021</a></li>
+                <li><a href="#">February 2021</a></li>
+                <li><a href="#">January 2021</a></li>
+                <li><a href="#">December 2020</a></li>
+                <li><a href="#">November 2020</a></li>
+                <li><a href="#">October 2020</a></li>
+                <li><a href="#">September 2020</a></li>
+                <li><a href="#">August 2020</a></li>
+                <li><a href="#">July 2020</a></li>
+                <li><a href="#">June 2020</a></li>
+                <li><a href="#">May 2020</a></li>
+                <li><a href="#">April 2020</a></li>
+              </ol>
+            </div>
+    
+            <div class="p-4">
+              <h4 class="fst-italic">Elsewhere</h4>
+              <ol class="list-unstyled">
+                <li><a href="#">GitHub</a></li>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+
+{% endblock body %}

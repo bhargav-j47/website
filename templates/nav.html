@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+<head id='head'>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.83.1">
+  <title id="title">Indian Nerds</title>
+  <link rel='icon' href='/static/favicon.ico' type='image/x-icon'>
+  <link rel="apple-touch-icon" sizes="57x57" href="/static/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/static/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/static/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/static/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/static/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/static/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/static/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/static/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/static/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+  <link rel="manifest" href="/static/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/static/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+
+  <style name="common">
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+
+    }
+
+    body {
+      background-color: #e8ecf0 !important;
+    }
+  </style>
+
+  <link name='common' href="/static/nav.css" rel="stylesheet">
+
+
+
+  <style name="common">
+    .carousel {
+      margin-bottom: 4rem;
+    }
+
+    /* Since positioning the image, we need to help out the caption*/
+    .carousel-caption {
+      bottom: 3rem;
+      z-index: 10;
+    }
+
+    /* Declare heights because of positioning of img element */
+    .carousel-item {
+      height: 32rem;
+    }
+
+    .carousel-item>img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      height: 32rem;
+    }
+
+    @media (min-width: 40em) {
+
+      /* Bump up size of carousel content */
+      .carousel-caption p {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+      }
+
+      .featurette-heading {
+        font-size: 50px;
+      }
+    }
+
+    @media (min-width: 62em) {
+      .featurette-heading {
+        margin-top: 7rem;
+      }
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <main id='nav'>
+    <div class="container-fluid">
+
+      <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
+
+        <div class="container-fluid">
+
+          <img src="/static/icon.jpg" alt="Indian nerds" width="50" height="60">
+          <a class="navbar-brand spf-link"
+            href="https://www.youtube.com/channel/UCxPVt7P69UKCymxHch4GpOg/featured">Indian
+            Nerds</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample01"
+            aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarsExample01">
+            <ul class="navbar-nav me-auto mb-2">
+              <li class="nav-item">
+                <a class="nav-link active spf-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                {% if user.is_authenticated %}
+                <a class="nav-link spf-link spf-link" href="/logout">logout</a>
+                {% else %}
+                <a class="nav-link spf-link" href="/login">login</a>
+                {% endif %}
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown"
+                  aria-expanded="false">more</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                  <li><a class="dropdown-item spf-link" href="/blog">blog</a></li>
+                  <li><a class="dropdown-item spf-link" href="/contact">contact us</a></li>
+                </ul>
+              </li>
+            </ul>
+
+
+            <div class="d-flex spf-link">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="query"
+                name="query">
+              <button class="btn btn-outline-success spf-link" onclick="setAction(this)"> search </button>
+
+              <script>
+                function setAction(form) {
+                  var url = '/search'
+                  var query = document.getElementById("query").value
+                  var curl = url + "?query=" + query
+                  spf.navigate(curl)
+
+
+                }
+              </script>
+
+            </div>
+
+
+
+          </div>
+        </div>
+      </nav>
+
+    </div>
+
+
+
+
+
+  </main>
+
+  <div id='cont'>
+
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" " {{ message.tags }}" role="alert">
+      {{ message }}
+
+
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    {% endfor %}
+    {% endif %}
+
+
+    {% block body %}
+
+
+    {% endblock body %}
+
+
+    {% block js %}
+
+
+    {% endblock js %}
+
+  </div>
+
+  <div id='footer'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/spf/2.4.0/spf.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"></script>
+
+    <script src="/static/spf.js"></script>
+    <script>
+      spf.init();
+
+    </script>
+
+
+
+
+  </div>
+
+
+
+</body>
+
+
+
+</html>
