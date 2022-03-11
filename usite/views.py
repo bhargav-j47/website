@@ -1,17 +1,12 @@
-from re import template
-from traceback import print_tb
-from typing_extensions import Self
-from urllib.request import urlopen
-from django import http
+
 from django.shortcuts import render, redirect
-from django.templatetags.static import static
 from usite.models import Contact, blogposts
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout
 from django.contrib.auth import login as dj_login
-from  django.http import HttpResponse, JsonResponse
+from  django.http import  JsonResponse
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import *
 from lxml import html
@@ -59,7 +54,7 @@ def spf_resp(content,fragments=None):
         body = response[ResponseKey.BODY] = {}
         for frag_id in fragments:
             body[frag_id] =  html.tostring(root.get_element_by_id(frag_id)).decode('utf-8')
-            print(html.tostring(root.get_element_by_id(frag_id)).decode('utf-8'))
+            
             
                     
         return response
@@ -112,8 +107,7 @@ def login(request):
     else:
         settings.SESSION_COOKIE_AGE=3600
 
-    print(settings.SESSION_COOKIE_AGE)
-
+    
 
     if request.user.is_authenticated:
         messages.error(request, 'already logged in with username {} logout first'.format(
@@ -213,7 +207,6 @@ def blogpost(request):
 
 
 def search(request):
-    print(request.GET)
     query = request.GET['query']
     if len(query) > 78:
         allPosts = blogposts.objects.none()
