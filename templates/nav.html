@@ -5,8 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.83.1">
+  <meta name="author" content="bhargav joshi">
   <title id="title">Indian Nerds</title>
   <link rel='icon' href='/static/favicon.ico' type='image/x-icon'>
   <link rel="apple-touch-icon" sizes="57x57" href="/static/apple-icon-57x57.png">
@@ -49,9 +48,10 @@
     }
   </style>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <style name="common">
     @media (min-width:1240px) {
@@ -103,15 +103,70 @@
         margin-top: 7rem;
       }
     }
+
+    /* progress bar css */
+
+    #progress {
+      position: fixed;
+      z-index: 2147483647;
+      top: 0;
+      left: 0px;
+      width: 0%;
+      height: 4px;
+      background: #f00404;
+      -moz-border-radius: 1px;
+      -webkit-border-radius: 1px;
+      border-radius: 1px;
+      -moz-transition: width 500ms ease-out, opacity 400ms linear;
+      -ms-transition: width 500ms ease-out, opacity 400ms linear;
+      -o-transition: width 500ms ease-out, opacity 400ms linear;
+      -webkit-transition: width 500ms ease-out, opacity 400ms linear;
+      transition: width 500ms ease-out, opacity 400ms linear;
+    }
+
+    #progress dd,
+    #progress dt {
+      position: absolute;
+      top: 0;
+      height: 2px;
+      -moz-box-shadow: #0088CC 1px 0 6px 1px;
+      -ms-box-shadow: #0088CC 1px 0 6px 1px;
+      -webkit-box-shadow: #0088CC 1px 0 6px 1px;
+      box-shadow: #0088CC 1px 0 6px 1px;
+      -moz-border-radius: 100%;
+      -webkit-border-radius: 100%;
+      border-radius: 100%;
+    }
+
+    #progress dt {
+      opacity: .6;
+      width: 180px;
+      right: -80px;
+      clip: rect(-6px, 90px, 14px, -6px);
+    }
+
+    #progress dd {
+      opacity: .6;
+      width: 20px;
+      right: 0;
+      clip: rect(-6px, 22px, 14px, 10px);
+    }
   </style>
 
 
 </head>
 
 <body>
+  <!--progress bar implementaion-->
+  <div id="progress" style="width: 0%;">
+    <dt></dt>
+    <dd></dd>
 
+
+  </div>
 
   <main id='nav'>
+
     <div class="container-fluid">
 
       <nav class="navbar navbar-dark bg-dark" aria-label="First navbar example">
@@ -153,7 +208,8 @@
             <div class="d-flex spf-link">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="query"
                 name="query">
-              <button id="searchBtn" class="btn btn-outline-success spf-link" onclick="setAction(this)"> search </button>
+              <button id="searchBtn" class="btn btn-outline-success spf-link" onclick="setAction(this)"> search
+              </button>
 
               <script>
                 function setAction(form) {
@@ -161,6 +217,7 @@
                   var query = document.getElementById("query").value
                   var curl = url + "?query=" + query
                   spf.navigate(curl)
+                }
 
 
                   var input = document.getElementById("query");
@@ -171,8 +228,6 @@
                     }
                   });
 
-
-                }
               </script>
 
             </div>
@@ -190,6 +245,7 @@
 
 
   </main>
+  
 
   <div id='cont'>
 
@@ -218,10 +274,29 @@
 
     {% endblock js %}
 
+    <!--progress bar javascript-->
+
+    <script>
+      function animate() {
+        var $progress = $('#progress');
+        $progress.width((50 + Math.random() * 30) + "%");
+
+
+        $progress.width("100%").delay(200).fadeOut(400, function () {
+          $progress.width("0%").delay(200).show();
+        });
+
+
+      }
+
+      document.addEventListener('spfprocess', animate());
+
+    </script>
+
   </div>
 
   <div id='footer'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/spf/2.4.0/spf.js"></script>
 
 
@@ -234,6 +309,9 @@
 
     <script>
       spf.init();
+
+
+
 
     </script>
 
