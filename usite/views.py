@@ -12,7 +12,6 @@ from django.contrib.auth.decorators import *
 from lxml import html
 from django.conf import settings
 
-# Create your views here. 
 
 from usite.models import Contact
 
@@ -29,6 +28,7 @@ class ResponseKey():
     REDIRECT = 'redirect'
 
 fragment=['cont']
+
 
 def spf_resp(content,fragments=None):
     root=html.fromstring(content)
@@ -52,10 +52,8 @@ def spf_resp(content,fragments=None):
 
     if fragments:
         body = response[ResponseKey.BODY] = {}
-        for frag_id in fragments:
-            body[frag_id] =  html.tostring(root.get_element_by_id(frag_id)).decode('utf-8')
-            
-            
+        for frag_id  in fragments:
+            body[frag_id] =  html.tostring(root.get_element_by_id(frag_id)).decode('utf-8') 
                     
         return response
 
@@ -160,25 +158,12 @@ def signup(request):
 
 def blog(request):
     if request.GET.__contains__('spf')==True:
-        
-
-        #blog_content='templates/blogspf.html'
+      
         myposts=blogposts.objects.all()
 
         blog_content=render_to_string('blog.html',{'myposts':myposts},request=request)
         
-        
-
         blog_resp=spf_resp(blog_content,fragments=fragment)
-        #print(blog_resp)
-        #data=encode_json(blog_resp)
-        with open("sample.json", "w") as outfile:
-            outfile.write(str(blog_resp))
-
-
-         
-        
-    
         return JsonResponse(blog_resp,safe=False)    
         
         
