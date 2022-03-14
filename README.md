@@ -68,12 +68,6 @@ on your browser enter
   after flushing database you should use makemigrations,migrate and createsuperuser command
 
 
-
-
-## Deployment
-
-To deploy this project run refer to https://docs.digitalocean.com/tutorials/app-deploy-django-app/
-
 ## Authors
 
 - [@bhargav-joshi-2005](https://www.github.com/bhargav-joshi-2005)
