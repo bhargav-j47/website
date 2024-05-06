@@ -33,7 +33,7 @@ django is most popular easy to use and secure backend framework made on python .
 Clone the project
 
 ```bash
-  git clone git clone https://github.com/bhargav-joshi-2005/website.git 
+  git clone git clone https://github.com/bhargav-j47/website.git 
 ```
 
 Go to the project directory
@@ -70,7 +70,7 @@ on your browser enter
 
 ## Authors
 
-- [@bhargav-joshi-2005](https://www.github.com/bhargav-joshi-2005)
+- [@bhargav-joshi-2005](https://www.github.com/bhargav-j47)
 - [@gayatri-joshi-2002](https://www.github.com/gayatri-joshi-2002)
 
 
